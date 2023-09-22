@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<title> TODO LIST </title>
+	<style>
+		body{
+			background-color: aqua;
+		}
+		.container{
+			width: 360px;
+			padding: 33px;
+			text-align: center;
+			background-color: white;
+			margin-left: 33%;
+			margin-top: 5px;
+		}
+		input{
+			width: 270px;
+			padding: 8px;
+			border: 2px solid aqua;
+			outline: none;
+			font-size: 19px;
+		}
+		button{
+			width: 60px;
+			height: 41px;
+			background-color: aqua;
+			color: white;
+			font-size: 19px;
+			border: none;
+			outline: none;
+			border-radius: 2px;
+			cursor: pointer;
+		}
+		.text ul{
+			position: relative;
+			background-color: aqua;
+			color: black;
+			text-align: left;
+			font-size: 19px;
+			padding: 7px;
+		}
+		.text ul i{
+			position: absolute;
+			right: 10px;
+			cursor: pointer;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>TODO LIST</h1>
+		<div class="input">
+			<input type="text" placeholder="enter your task" id=inp>
+			<button onclick="Add()">Add</button>
+		</div>
+		<div class="text">
+
+		</div>
+	</div>
+	<script>
+		let inputs=document.getElementById("inp");
+		let text=document.querySelector(".text");
+
+		function Add(){
+			if(inputs.value =="")
+			{
+				alert("please enter task");
+			}
+			else{
+				let newElement=document.createElement("ul");
+				newElement.innerHTML=`${inputs.value} <i class="fa-solid fa-trash"></i>`;
+				text.appendChild(newElement);
+				inputs.value="";
+				newElement.querySelector("i").addEventListener("click",remove);
+				function remove(){
+					newElement.remove();
+				}
+			}
+		}
+	</script>
+
+	
+
+</body>
+</html>
